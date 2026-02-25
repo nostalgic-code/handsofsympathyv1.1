@@ -1210,7 +1210,9 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/handsofsympathy/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/handsofsympathy/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/handsofsympathy/node_modules/gsap/index.js [app-ssr] (ecmascript) <locals>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/handsofsympathy/node_modules/next/image.js [app-ssr] (ecmascript)");
 'use client';
+;
 ;
 ;
 ;
@@ -1249,10 +1251,42 @@ function HomeHero({ isReady, onOpenDrawer }) {
                 duration: 1.5,
                 ease: 'power3.out'
             }, 0.3);
+            // Hero image reveal
+            tl.fromTo('.hero-image-wrap', {
+                clipPath: 'circle(0% at 50% 50%)',
+                opacity: 0
+            }, {
+                clipPath: 'circle(75% at 50% 50%)',
+                opacity: 1,
+                duration: 1.8,
+                ease: 'power3.inOut'
+            }, 0.6).fromTo('.hero-image-inner', {
+                scale: 1.3
+            }, {
+                scale: 1,
+                duration: 2,
+                ease: 'power3.out'
+            }, 0.6).fromTo('.hero-image-frame', {
+                opacity: 0,
+                scale: 0.9
+            }, {
+                opacity: 1,
+                scale: 1,
+                duration: 1.2,
+                ease: 'power3.out'
+            }, 1);
             // Breathe on largest ring
             __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].to('.hero-deco-ring.breathe', {
                 scale: 1.06,
                 duration: 6,
+                ease: 'sine.inOut',
+                yoyo: true,
+                repeat: -1
+            });
+            // Subtle float on image
+            __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].to('.hero-image-wrap', {
+                y: -12,
+                duration: 4,
                 ease: 'sine.inOut',
                 yoyo: true,
                 repeat: -1
@@ -1280,7 +1314,7 @@ function HomeHero({ isReady, onOpenDrawer }) {
                 }
             }, void 0, false, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                lineNumber: 42,
+                lineNumber: 65,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1294,7 +1328,7 @@ function HomeHero({ isReady, onOpenDrawer }) {
                 }
             }, void 0, false, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                lineNumber: 43,
+                lineNumber: 66,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1309,50 +1343,180 @@ function HomeHero({ isReady, onOpenDrawer }) {
                 }
             }, void 0, false, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                lineNumber: 44,
+                lineNumber: 67,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute top-36 right-14 text-right hidden md:block",
+                className: "hero-image-container",
+                style: {
+                    position: 'absolute',
+                    top: '12%',
+                    right: '6%',
+                    width: 'clamp(280px, 32vw, 480px)',
+                    height: 'clamp(350px, 42vw, 600px)',
+                    zIndex: 2
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "hero-image-frame",
+                        style: {
+                            position: 'absolute',
+                            inset: '-20px',
+                            border: '1px solid rgba(127,23,52,0.15)',
+                            borderRadius: '200px 200px 120px 120px',
+                            opacity: 0
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
+                        lineNumber: 82,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "hero-image-frame",
+                        style: {
+                            position: 'absolute',
+                            inset: '-40px',
+                            border: '1px solid rgba(127,23,52,0.08)',
+                            borderRadius: '220px 220px 140px 140px',
+                            opacity: 0
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
+                        lineNumber: 92,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "hero-image-wrap",
+                        style: {
+                            position: 'relative',
+                            width: '100%',
+                            height: '100%',
+                            borderRadius: '180px 180px 100px 100px',
+                            overflow: 'hidden',
+                            boxShadow: '0 40px 80px -20px rgba(127,23,52,0.25), 0 20px 40px -15px rgba(0,0,0,0.1)',
+                            opacity: 0
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "hero-image-inner",
+                                style: {
+                                    width: '100%',
+                                    height: '100%'
+                                },
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                    src: "https://images.unsplash.com/photo-1607748862156-7c548e7e98f4?q=80&w=1887&auto=format&fit=crop",
+                                    alt: "Supportive therapy session",
+                                    fill: true,
+                                    priority: true,
+                                    sizes: "(max-width: 768px) 280px, 32vw",
+                                    style: {
+                                        objectFit: 'cover',
+                                        objectPosition: 'center 20%'
+                                    }
+                                }, void 0, false, {
+                                    fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
+                                    lineNumber: 117,
+                                    columnNumber: 13
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
+                                lineNumber: 116,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    position: 'absolute',
+                                    inset: 0,
+                                    background: 'linear-gradient(180deg, rgba(127,23,52,0.05) 0%, transparent 30%, transparent 70%, rgba(127,23,52,0.12) 100%)',
+                                    pointerEvents: 'none'
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
+                                lineNumber: 128,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
+                        lineNumber: 104,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "hero-image-caption",
+                        style: {
+                            position: 'absolute',
+                            bottom: '-30px',
+                            left: '50%',
+                            transform: 'translateX(-50%)',
+                            background: 'var(--bg)',
+                            padding: '0.75rem 1.5rem',
+                            fontSize: '0.6rem',
+                            letterSpacing: '0.25em',
+                            textTransform: 'uppercase',
+                            color: 'var(--muted)',
+                            whiteSpace: 'nowrap',
+                            boxShadow: '0 4px 20px rgba(0,0,0,0.06)'
+                        },
+                        children: "Your Journey Begins"
+                    }, void 0, false, {
+                        fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
+                        lineNumber: 139,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
+                lineNumber: 70,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute top-36 right-14 text-right hidden lg:block",
                 style: {
                     fontSize: '0.6rem',
                     letterSpacing: '0.25em',
                     textTransform: 'uppercase',
                     color: 'rgba(107,107,107,0.4)',
-                    lineHeight: 2.2
+                    lineHeight: 2.2,
+                    zIndex: 1
                 },
                 children: [
                     "Birmingham, UK",
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                        lineNumber: 51,
+                        lineNumber: 165,
                         columnNumber: 23
                     }, this),
                     "BABCP Accredited",
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                        lineNumber: 51,
+                        lineNumber: 165,
                         columnNumber: 45
                     }, this),
                     "Est. 2010"
                 ]
             }, void 0, true, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                lineNumber: 47,
+                lineNumber: 161,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "section-tag mb-12",
                 style: {
-                    marginBottom: '3rem'
+                    marginBottom: '3rem',
+                    position: 'relative',
+                    zIndex: 3
                 },
                 children: "Mental Health Support"
             }, void 0, false, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                lineNumber: 55,
+                lineNumber: 169,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    position: 'relative',
+                    zIndex: 3
+                },
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "reveal-line hero-line",
@@ -1364,12 +1528,12 @@ function HomeHero({ isReady, onOpenDrawer }) {
                             children: "Support With"
                         }, void 0, false, {
                             fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                            lineNumber: 62,
+                            lineNumber: 176,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                        lineNumber: 61,
+                        lineNumber: 175,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1383,12 +1547,12 @@ function HomeHero({ isReady, onOpenDrawer }) {
                             children: "Your Mental"
                         }, void 0, false, {
                             fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                            lineNumber: 65,
+                            lineNumber: 179,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                        lineNumber: 64,
+                        lineNumber: 178,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1401,22 +1565,26 @@ function HomeHero({ isReady, onOpenDrawer }) {
                             children: "Health Concerns"
                         }, void 0, false, {
                             fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                            lineNumber: 68,
+                            lineNumber: 182,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                        lineNumber: 67,
+                        lineNumber: 181,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                lineNumber: 60,
+                lineNumber: 174,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex flex-col md:flex-row items-start md:items-end justify-between gap-8 mt-16 flex-wrap",
+                style: {
+                    position: 'relative',
+                    zIndex: 3
+                },
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                         className: "hero-sub",
@@ -1430,7 +1598,7 @@ function HomeHero({ isReady, onOpenDrawer }) {
                         children: "A safe space for your mental wellbeing — compassionate, evidence-based support with over 14 years of clinical expertise."
                     }, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                        lineNumber: 74,
+                        lineNumber: 188,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1446,12 +1614,12 @@ function HomeHero({ isReady, onOpenDrawer }) {
                                     children: "Request a Call"
                                 }, void 0, false, {
                                     fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                                    lineNumber: 79,
+                                    lineNumber: 193,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                                lineNumber: 78,
+                                lineNumber: 192,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -1461,24 +1629,24 @@ function HomeHero({ isReady, onOpenDrawer }) {
                                     children: "Why It Works →"
                                 }, void 0, false, {
                                     fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                                    lineNumber: 82,
+                                    lineNumber: 196,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                                lineNumber: 81,
+                                lineNumber: 195,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                        lineNumber: 77,
+                        lineNumber: 191,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                lineNumber: 73,
+                lineNumber: 187,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1489,20 +1657,20 @@ function HomeHero({ isReady, onOpenDrawer }) {
                         children: "Scroll"
                     }, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                        lineNumber: 89,
+                        lineNumber: 203,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "scroll-bar"
                     }, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                        lineNumber: 90,
+                        lineNumber: 204,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                lineNumber: 88,
+                lineNumber: 202,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1511,18 +1679,19 @@ function HomeHero({ isReady, onOpenDrawer }) {
                     fontFamily: 'var(--font-cormorant)',
                     fontSize: '0.65rem',
                     color: 'rgba(107,107,107,0.25)',
-                    letterSpacing: '0.2em'
+                    letterSpacing: '0.2em',
+                    zIndex: 3
                 },
                 children: "01 / 06"
             }, void 0, false, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                lineNumber: 94,
+                lineNumber: 208,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-        lineNumber: 36,
+        lineNumber: 59,
         columnNumber: 5
     }, this);
 }

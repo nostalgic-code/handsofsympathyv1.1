@@ -280,6 +280,7 @@
 
 .deco-ring { position: absolute; border-radius: 50%; pointer-events: none; border: 1px solid rgba(127,23,52,.1); }
 .deco-ring.breathe { animation: ring-breathe 6s ease-in-out infinite; }
+.hero-deco-ring { position: absolute; border-radius: 50%; pointer-events: none; border: 1px solid rgba(127,23,52,.08); opacity: 0; }
 @keyframes ring-breathe { 0%,100%{transform:scale(1)} 50%{transform:scale(1.06)} }
 
 .footer-wrap { background: var(--claret-dark); padding: 4rem 3.5rem 3rem; border-top: 1px solid rgba(232,216,197,.08); }
@@ -293,3 +294,19 @@
 
 .step-dot { width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid var(--claret); background: var(--cream-light); position: relative; z-index: 1; margin-bottom: 1.75rem; }
 .step-dot::before { content: ''; position: absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:6px; height:6px; border-radius:50%; background:var(--claret); }
+
+/* HERO IMAGE RESPONSIVE */
+@media (max-width: 1024px) {
+  .hero-image-container { 
+    top: 8% !important; 
+    right: 2% !important; 
+    width: clamp(200px, 28vw, 320px) !important; 
+    height: clamp(260px, 36vw, 420px) !important;
+    opacity: 0.85;
+  }
+}
+@media (max-width: 768px) {
+  .hero-image-container { 
+    display: none !important;
+  }
+}

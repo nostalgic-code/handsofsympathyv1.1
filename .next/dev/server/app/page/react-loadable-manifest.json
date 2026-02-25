@@ -3,14 +3,14 @@
     "id": "[project]/handsofsympathy/src/components/AudioButton.tsx [app-client] (ecmascript, next/dynamic entry)",
     "files": [
       "static/chunks/handsofsympathy_src_components_AudioButton_tsx_fb88eaca._.js",
-      "static/chunks/handsofsympathy_src_components_AudioButton_tsx_6cc2ddfa._.js"
+      "static/chunks/handsofsympathy_src_components_AudioButton_tsx_7d525883._.js"
     ]
   },
   "[project]/handsofsympathy/src/components/CustomCursor.tsx [app-client] (ecmascript, next/dynamic entry)": {
     "id": "[project]/handsofsympathy/src/components/CustomCursor.tsx [app-client] (ecmascript, next/dynamic entry)",
     "files": [
       "static/chunks/handsofsympathy_src_components_CustomCursor_tsx_e7246c2f._.js",
-      "static/chunks/handsofsympathy_src_components_CustomCursor_tsx_6cc2ddfa._.js"
+      "static/chunks/handsofsympathy_src_components_CustomCursor_tsx_7d525883._.js"
     ]
   }
 }

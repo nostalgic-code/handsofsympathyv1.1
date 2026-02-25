@@ -1979,6 +1979,14 @@ body {
   animation: 6s ease-in-out infinite ring-breathe;
 }
 
+.hero-deco-ring {
+  pointer-events: none;
+  opacity: 0;
+  border: 1px solid #7f173414;
+  border-radius: 50%;
+  position: absolute;
+}
+
 @keyframes ring-breathe {
   0%, 100% {
     transform: scale(1);
@@ -2067,6 +2075,22 @@ body {
   transform: translate(-50%, -50%);
 }
 
+@media (max-width: 1024px) {
+  .hero-image-container {
+    opacity: .85;
+    width: clamp(200px, 28vw, 320px) !important;
+    height: clamp(260px, 36vw, 420px) !important;
+    top: 8% !important;
+    right: 2% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-image-container {
+    display: none !important;
+  }
+}
+
 .group:hover .group-hover\:opacity-100 {
   opacity: 1;
 }
@@ -2106,6 +2130,12 @@ body {
 
   .md\:justify-between {
     justify-content: space-between;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:block {
+    display: block;
   }
 }
 
