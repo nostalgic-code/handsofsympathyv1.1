@@ -1,0 +1,60 @@
+[00:00:03.357] Server  LOG     
+[00:00:03.358] Server  LOG       We detected TypeScript in your project and reconfigured your tsconfig.json file for you.
+[00:00:03.359] Server  LOG       The following suggested values were added to your tsconfig.json. These values can be changed to fit your project's needs:
+
+[00:00:03.359] Server  LOG       	- target was set to ES2017 (For top-level `await`. Note: Next.js only polyfills for the esmodules target.)
+[00:00:03.359] Server  LOG       	- include was updated to add '.next/dev/types/**/*.ts'
+[00:00:03.360] Server  LOG     
+[00:00:03.360] Server  LOG       The following mandatory changes were made to your tsconfig.json:
+
+[00:00:03.361] Server  LOG       	- jsx was set to react-jsx (next.js uses the React automatic runtime)
+[00:00:03.361] Server  LOG     
+[00:00:04.064] Server  LOG     ✓ Ready in 2.8s
+[00:00:10.633] Server  LOG     ○ Compiling / ...
+[00:00:18.732] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[00:00:19.239] Server  ERROR   Each child in a list should have a unique "key" prop.
+
+Check the render method of `StatsStrip`. See https://react.dev/link/warning-keys for more information.
+[00:00:20.686] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:21.012] Browser ERROR   Each child in a list should have a unique "key" prop.%s%s See https://react.dev/link/warning-keys for more information. 
+
+Check the render method of `div`.  It was passed a child from StatsStrip.
+[00:06:16.649] Server  LOG     ○ Compiling /about ...
+[00:06:47.885] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /about. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[00:06:49.534] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /about. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[00:06:49.734] Server  LOG     ✓ Finished writing to filesystem cache in 14.3s
+[00:07:49.401] Server  LOG     ○ Compiling /why-it-works ...
+[00:08:01.810] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /why-it-works. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[00:08:29.362] Server  LOG     ✓ Finished writing to filesystem cache in 16.6s
+[00:08:34.066] Server  LOG     ✓ Compiled in 8s
+[00:09:37.314] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[00:12:21.193] Server  LOG     ✓ Compiled in 2.7s
+[00:15:31.417] Server  LOG     ✓ Compiled in 5.1s
+[00:15:55.411] Server  LOG     ✓ Compiled in 2.9s
+[00:16:13.634] Server  LOG     ✓ Compiled in 2.9s
+[00:16:34.118] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[00:16:38.173] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:30.751] Server  LOG     ✓ Compiled in 6s
+[00:18:43.251] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[00:18:45.644] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:20:33.304] Server  LOG     ✓ Compiled in 3.8s
+[00:51:11.782] Server  LOG     ✓ Compiled in 1785ms
+[00:51:26.933] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[00:51:28.430] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:52:27.462] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[00:52:28.921] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:53:16.331] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /about. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[00:53:42.693] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /why-it-works. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[13:02:44.647] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
