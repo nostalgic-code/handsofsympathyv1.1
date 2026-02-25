@@ -173,9 +173,10 @@
 }
 .drawer-backdrop.is-open { opacity: 1; pointer-events: all; }
 .drawer-panel {
-  position: fixed; right: 0; top: 0; bottom: 0; z-index: 800;
-  width: min(520px,100vw); background: var(--bg); overflow-y: auto;
-  transform: translateX(100%); transition: transform .7s var(--ease-expo); display: flex; flex-direction: column;
+  position: fixed; right: 0; top: 0; z-index: 800;
+  width: min(520px,100vw); height: 100vh; height: 100dvh; background: var(--bg); 
+  overflow-x: hidden; overflow-y: auto;
+  transform: translateX(100%); transition: transform .7s var(--ease-expo);
 }
 .drawer-panel.is-open { transform: translateX(0); }
 .drawer-header {
@@ -196,7 +197,9 @@
   flex-shrink: 0; margin-top: .25rem; transition: all .3s;
 }
 .drawer-close:hover { border-color: var(--claret); color: var(--claret); }
-.drawer-body { padding: 2.5rem 3rem 3rem; flex: 1; display: flex; flex-direction: column; gap: 1.75rem; }
+.drawer-scroll { display: contents; }
+.drawer-form { padding: 2.5rem 3rem 3rem; display: flex; flex-direction: column; gap: 1.75rem; }
+.drawer-body { padding: 2.5rem 3rem 3rem; flex: 1; display: flex; flex-direction: column; gap: 1.75rem; overflow-y: auto; min-height: 0; }
 .field-label { display: block; font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
 .field-input,.field-select,.field-textarea {
   width: 100%; background: transparent; border: none; border-bottom: 1.5px solid rgba(0,0,0,.12);

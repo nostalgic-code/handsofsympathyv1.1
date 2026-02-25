@@ -21,6 +21,7 @@ export function useLenis() {
     })
 
     lenisRef.current = lenis
+    ;(window as any).__lenis = lenis
     lenis.on('scroll', ScrollTrigger.update)
 
     const ticker = (time: number) => lenis.raf(time * 1000)
@@ -30,6 +31,7 @@ export function useLenis() {
     return () => {
       lenis.destroy()
       gsap.ticker.remove(ticker)
+      delete (window as any).__lenis
     }
   }, [])
 

@@ -1,15 +1,25 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import gsap from 'gsap'
 
 export default function CallDrawer() {
   const [open,      setOpen]      = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [chip,      setChip]      = useState<string | null>(null)
+  const panelRef = useRef<HTMLDivElement>(null)
 
-  const openDrawer  = useCallback(() => { setOpen(true);  document.body.style.overflow = 'hidden' }, [])
-  const closeDrawer = useCallback(() => { setOpen(false); document.body.style.overflow = '' }, [])
+  const openDrawer  = useCallback(() => {
+    setOpen(true)
+    document.body.style.overflow = 'hidden'
+    ;(window as any).__lenis?.stop()
+  }, [])
+  
+  const closeDrawer = useCallback(() => {
+    setOpen(false)
+    document.body.style.overflow = ''
+    ;(window as any).__lenis?.start()
+  }, [])
 
   // Expose openDrawer globally so other components can trigger it
   useEffect(() => {
@@ -23,6 +33,15 @@ export default function CallDrawer() {
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [closeDrawer])
+
+  // Prevent wheel events from propagating to Lenis
+  useEffect(() => {
+    const panel = panelRef.current
+    if (!panel) return
+    const stopWheel = (e: WheelEvent) => e.stopPropagation()
+    panel.addEventListener('wheel', stopWheel, { passive: false })
+    return () => panel.removeEventListener('wheel', stopWheel)
+  }, [])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -51,10 +70,12 @@ export default function CallDrawer() {
 
       {/* Drawer */}
       <div
+        ref={panelRef}
         className={`drawer-panel${open ? ' is-open' : ''}`}
         role="dialog"
         aria-modal="true"
         aria-label="Request a call back"
+        data-lenis-prevent
       >
         <div className="drawer-header">
           <div>
@@ -67,12 +88,13 @@ export default function CallDrawer() {
         </div>
 
         {!submitted ? (
-          <form className="drawer-body" onSubmit={handleSubmit}>
-            {/* Name row */}
-            <div className="grid grid-cols-2 gap-5">
-              <div>
-                <label className="field-label">First Name</label>
-                <input className="field-input" type="text" placeholder="Your name" required />
+          <div className="drawer-scroll" data-lenis-prevent>
+            <form className="drawer-form" onSubmit={handleSubmit}>
+              {/* Name row */}
+              <div className="grid grid-cols-2 gap-5">
+                <div>
+                  <label className="field-label">First Name</label>
+                  <input className="field-input" type="text" placeholder="Your name" required />
               </div>
               <div>
                 <label className="field-label">Last Name</label>
@@ -141,7 +163,8 @@ export default function CallDrawer() {
             >
               <span>Submit Request →</span>
             </button>
-          </form>
+            </form>
+          </div>
         ) : (
           <div
             id="drawer-success"

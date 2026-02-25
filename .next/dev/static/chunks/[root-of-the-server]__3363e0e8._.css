@@ -1450,14 +1450,12 @@ body {
   z-index: 800;
   background: var(--bg);
   width: min(520px, 100vw);
+  height: 100dvh;
   transition: transform .7s var(--ease-expo);
-  flex-direction: column;
-  display: flex;
   position: fixed;
   top: 0;
-  bottom: 0;
   right: 0;
-  overflow-y: auto;
+  overflow: hidden auto;
   transform: translateX(100%);
 }
 
@@ -1531,12 +1529,25 @@ body {
   color: var(--claret);
 }
 
+.drawer-scroll {
+  display: contents;
+}
+
+.drawer-form {
+  flex-direction: column;
+  gap: 1.75rem;
+  padding: 2.5rem 3rem 3rem;
+  display: flex;
+}
+
 .drawer-body {
   flex-direction: column;
   flex: 1;
   gap: 1.75rem;
+  min-height: 0;
   padding: 2.5rem 3rem 3rem;
   display: flex;
+  overflow-y: auto;
 }
 
 .field-label {
