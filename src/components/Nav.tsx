@@ -51,7 +51,7 @@ export default function Nav({ isReady }: Props) {
       {/* Logo */}
       <a href="/" className="nav-logo" onClick={(e) => { e.preventDefault(); router.push('/') }}>
         <div className="logo-emblem" aria-hidden="true">
-          <div className="logo-heart" />
+          <img src="/logo-trans.png" alt="Hands of Sympathy" className="logo-img" />
         </div>
         <span className="logo-name">Hands of Sympathy</span>
       </a>

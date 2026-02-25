@@ -108,16 +108,21 @@
 .nav-wrap.nav-scrolled .nav-backdrop { background: rgba(250,250,248,.88); backdrop-filter: blur(14px); }
 .nav-logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
 .logo-emblem {
-  width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid var(--claret);
-  display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
+  width: 90px; height: 90px;
+  display: flex; align-items: center; justify-content: center; position: relative;
 }
-.logo-emblem::before {
-  content: ''; position: absolute; inset: 0; background: var(--claret);
-  transform: scaleY(0); transform-origin: bottom; transition: transform .4s var(--ease-expo);
-}
-.nav-logo:hover .logo-emblem::before { transform: scaleY(1); }
-.logo-heart { width: 10px; height: 10px; border-radius: 50%; background: var(--claret); position: relative; z-index: 1; transition: background .3s; }
-.nav-logo:hover .logo-heart { background: var(--cream-light); }
+.logo-icon { width: 28px; height: 28px; position: relative; z-index: 1; }
+.logo-img { width: 100%; height: 100%; object-fit: contain; position: relative; z-index: 1; }
+.logo-hands { stroke: var(--claret); transition: stroke .3s; }
+.logo-hands-fill { fill: var(--claret); transition: fill .3s; }
+.logo-plant { stroke: var(--claret); transition: stroke .3s; }
+.logo-leaf-fill { fill: var(--claret); transition: fill .3s; }
+.logo-heart-shape { fill: var(--claret); transition: fill .3s; }
+.nav-logo:hover .logo-hands { stroke: var(--cream-light); }
+.nav-logo:hover .logo-hands-fill { fill: var(--cream-light); }
+.nav-logo:hover .logo-plant { stroke: var(--cream-light); }
+.nav-logo:hover .logo-leaf-fill { fill: var(--cream-light); }
+.nav-logo:hover .logo-heart-shape { fill: var(--cream-light); }
 .logo-name { font-family: var(--font-cormorant),Georgia,serif; font-size: 1.05rem; font-weight: 500; color: var(--fg); }
 .nav-pill-wrap {
   display: flex; background: rgba(127,23,52,.06); border-radius: 100px;
