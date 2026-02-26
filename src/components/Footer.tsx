@@ -3,6 +3,26 @@ import Link from 'next/link'
 const SERVICES = ['CBT Therapy', 'Autism Assessments', 'Family Workshops', '1:1 Sessions', 'Psychometric Testing']
 const LEGAL    = ['Privacy Policy', 'GDPR Statement', 'Complaints Procedure', 'Referrals']
 
+function FooterLogo() {
+  return (
+    <svg viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
+      <path 
+        d="M8 28c-1.5-2-2-4-1.5-6 .5-2 2-3.5 4-4.5 1-.5 2.2-.8 3.5-.5 1 .2 2 .8 2.8 1.5.5.5 1 1.2 1.2 2 .2-.8.7-1.5 1.2-2 .8-.7 1.8-1.3 2.8-1.5 1.3-.3 2.5 0 3.5.5 2 1 3.5 2.5 4 4.5.5 2 0 4-1.5 6"
+        fill="none"
+        stroke="var(--cream)"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path 
+        d="M20 24c0 0-4-3-4-5.5 0-1.5 1-2.5 2.2-2.5 1 0 1.5.5 1.8 1 .3-.5.8-1 1.8-1 1.2 0 2.2 1 2.2 2.5 0 2.5-4 5.5-4 5.5z"
+        fill="var(--cream)"
+        strokeWidth="0"
+      />
+    </svg>
+  )
+}
+
 export default function Footer() {
   return (
     <footer className="footer-wrap">
@@ -10,7 +30,7 @@ export default function Footer() {
         {/* Brand */}
         <div className="md:col-span-1">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-2 h-2 rounded-full" style={{ background: 'var(--cream)' }} />
+            <FooterLogo />
             <span style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.25rem', color: 'var(--cream-light)' }}>
               Hands of Sympathy
             </span>

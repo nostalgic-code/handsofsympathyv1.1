@@ -83,8 +83,8 @@ export default function AboutPage() {
       <div ref={pageRef}>
         {/* ── HERO ── */}
         <section
-          className="about-hero relative min-h-[70vh] flex items-end overflow-hidden"
-          style={{ padding: '10rem 3.5rem 6rem', background: 'var(--bg)' }}
+          className="about-hero relative min-h-[70vh] flex items-end overflow-hidden px-4 sm:px-8 md:px-14 pt-32 sm:pt-36 md:pt-40 pb-12 sm:pb-16 md:pb-24"
+          style={{ background: 'var(--bg)' }}
         >
           {/* Large bg number */}
           <div style={{
@@ -104,8 +104,7 @@ export default function AboutPage() {
         </section>
 
         {/* ── FELIX ── */}
-        <section style={{ padding: '6rem 3.5rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6rem', alignItems: 'start' }}
-          className="flex-col md:flex-row flex-wrap">
+        <section className="px-4 sm:px-8 md:px-14 py-12 sm:py-16 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-start">
           {/* Portrait */}
           <div style={{ position: 'relative' }}>
             <div ref={portraitRef} className="portrait-box">
@@ -194,7 +193,7 @@ export default function AboutPage() {
         </section>
 
         {/* ── VALUES ── */}
-        <section id="about-values" style={{ padding: '6rem 3.5rem', background: 'var(--cream-light)' }}>
+        <section id="about-values" className="px-4 sm:px-8 md:px-14 py-12 sm:py-16 md:py-24" style={{ background: 'var(--cream-light)' }}>
           <div className="section-tag mb-6">Our Approach</div>
           <div className="reveal-line about-reveal"><span className="rl-inner text-display-lg">Every person is unique.</span></div>
           <div className="reveal-line about-reveal">
@@ -215,7 +214,7 @@ export default function AboutPage() {
         </section>
 
         {/* ── CTA ── */}
-        <section style={{ padding: '6rem 3.5rem', background: 'var(--claret)', position: 'relative', overflow: 'hidden' }}>
+        <section className="px-4 sm:px-8 md:px-14 py-12 sm:py-16 md:py-24" style={{ background: 'var(--claret)', position: 'relative', overflow: 'hidden' }}>
           <div style={{
             position: 'absolute', right: '-3rem', top: '50%', transform: 'translateY(-50%)',
             fontFamily: 'var(--font-cormorant)', fontSize: '18rem', fontStyle: 'italic',

@@ -232,6 +232,7 @@ function Nav({ isReady }) {
     const navRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePathname"])();
+    const [menuOpen, setMenuOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "Nav.useEffect": ()=>{
             if (!isReady || !navRef.current) return;
@@ -272,96 +273,217 @@ function Nav({ isReady }) {
     }["Nav.useEffect"], [
         pathname
     ]);
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-        ref: navRef,
-        className: "nav-wrap",
-        "aria-label": "Main navigation",
+    // Close menu on route change
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "Nav.useEffect": ()=>{
+            setMenuOpen(false);
+        }
+    }["Nav.useEffect"], [
+        pathname
+    ]);
+    // Prevent body scroll when menu is open
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "Nav.useEffect": ()=>{
+            if (menuOpen) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+            return ({
+                "Nav.useEffect": ()=>{
+                    document.body.style.overflow = '';
+                }
+            })["Nav.useEffect"];
+        }
+    }["Nav.useEffect"], [
+        menuOpen
+    ]);
+    const handleNavClick = (href)=>{
+        setMenuOpen(false);
+        router.push(href);
+    };
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "nav-backdrop",
-                "aria-hidden": "true"
-            }, void 0, false, {
-                fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
-                lineNumber: 49,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                href: "/",
-                className: "nav-logo",
-                onClick: (e)=>{
-                    e.preventDefault();
-                    router.push('/');
-                },
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
+                ref: navRef,
+                className: "nav-wrap",
+                "aria-label": "Main navigation",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "logo-emblem",
-                        "aria-hidden": "true",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "logo-heart"
-                        }, void 0, false, {
-                            fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
-                            lineNumber: 54,
-                            columnNumber: 11
-                        }, this)
+                        className: "nav-backdrop",
+                        "aria-hidden": "true"
                     }, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
-                        lineNumber: 53,
+                        lineNumber: 71,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                        className: "logo-name",
-                        children: "Hands of Sympathy"
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                        href: "/",
+                        className: "nav-logo",
+                        onClick: (e)=>{
+                            e.preventDefault();
+                            router.push('/');
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "logo-emblem",
+                                "aria-hidden": "true",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                    src: "/logo-trans.png",
+                                    alt: "Hands of Sympathy",
+                                    className: "logo-img"
+                                }, void 0, false, {
+                                    fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
+                                    lineNumber: 76,
+                                    columnNumber: 13
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
+                                lineNumber: 75,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "logo-name",
+                                children: "Hands of Sympathy"
+                            }, void 0, false, {
+                                fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
+                                lineNumber: 78,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
+                        lineNumber: 74,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "nav-pill-wrap desktop-nav",
+                        role: "tablist",
+                        "aria-label": "Site pages",
+                        children: NAV_ITEMS.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                role: "tab",
+                                "aria-selected": pathname === item.href,
+                                className: `nav-pill-btn${pathname === item.href ? ' is-active' : ''}`,
+                                onClick: ()=>router.push(item.href),
+                                children: item.label
+                            }, item.href, false, {
+                                fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
+                                lineNumber: 84,
+                                columnNumber: 13
+                            }, this))
                     }, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
-                        lineNumber: 56,
+                        lineNumber: 82,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "relative z-10 flex items-center gap-3",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(AudioButton, {}, void 0, false, {
+                                fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
+                                lineNumber: 98,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                className: "hamburger-btn",
+                                onClick: ()=>setMenuOpen(!menuOpen),
+                                "aria-label": menuOpen ? 'Close menu' : 'Open menu',
+                                "aria-expanded": menuOpen,
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: `hamburger-line ${menuOpen ? 'is-open' : ''}`
+                                    }, void 0, false, {
+                                        fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
+                                        lineNumber: 107,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: `hamburger-line ${menuOpen ? 'is-open' : ''}`
+                                    }, void 0, false, {
+                                        fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
+                                        lineNumber: 108,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: `hamburger-line ${menuOpen ? 'is-open' : ''}`
+                                    }, void 0, false, {
+                                        fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
+                                        lineNumber: 109,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
+                                lineNumber: 101,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
+                        lineNumber: 97,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
-                lineNumber: 52,
+                lineNumber: 70,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "nav-pill-wrap",
-                role: "tablist",
-                "aria-label": "Site pages",
-                children: NAV_ITEMS.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        role: "tab",
-                        "aria-selected": pathname === item.href,
-                        className: `nav-pill-btn${pathname === item.href ? ' is-active' : ''}`,
-                        onClick: ()=>router.push(item.href),
-                        children: item.label
-                    }, item.href, false, {
-                        fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
-                        lineNumber: 62,
-                        columnNumber: 11
-                    }, this))
-            }, void 0, false, {
-                fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
-                lineNumber: 60,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "relative z-10 flex items-center gap-3",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(AudioButton, {}, void 0, false, {
+                className: `mobile-menu-overlay ${menuOpen ? 'is-open' : ''}`,
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "mobile-menu-content",
+                    children: [
+                        NAV_ITEMS.map((item, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                className: `mobile-menu-item ${pathname === item.href ? 'is-active' : ''}`,
+                                onClick: ()=>handleNavClick(item.href),
+                                style: {
+                                    animationDelay: `${i * 0.1}s`
+                                },
+                                children: item.label
+                            }, item.href, false, {
+                                fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
+                                lineNumber: 118,
+                                columnNumber: 13
+                            }, this)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "mobile-menu-footer",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    children: "Birmingham, UK"
+                                }, void 0, false, {
+                                    fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
+                                    lineNumber: 129,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    children: "BABCP Accredited"
+                                }, void 0, false, {
+                                    fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
+                                    lineNumber: 130,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
+                            lineNumber: 128,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
                     fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
-                    lineNumber: 76,
+                    lineNumber: 116,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
-                lineNumber: 75,
+                lineNumber: 115,
                 columnNumber: 7
             }, this)
         ]
-    }, void 0, true, {
-        fileName: "[project]/handsofsympathy/src/components/Nav.tsx",
-        lineNumber: 48,
-        columnNumber: 5
-    }, this);
+    }, void 0, true);
 }
-_s(Nav, "cJRnBLCp+bzsSFfG5Ui+k2wDVi0=", false, function() {
+_s(Nav, "NjMI+fl7VyHUaj/rLPHYKAMGTiA=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"],
         __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePathname"]
@@ -1031,6 +1153,42 @@ const LEGAL = [
     'Complaints Procedure',
     'Referrals'
 ];
+function FooterLogo() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        viewBox: "0 0 40 40",
+        width: "28",
+        height: "28",
+        "aria-hidden": "true",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M8 28c-1.5-2-2-4-1.5-6 .5-2 2-3.5 4-4.5 1-.5 2.2-.8 3.5-.5 1 .2 2 .8 2.8 1.5.5.5 1 1.2 1.2 2 .2-.8.7-1.5 1.2-2 .8-.7 1.8-1.3 2.8-1.5 1.3-.3 2.5 0 3.5.5 2 1 3.5 2.5 4 4.5.5 2 0 4-1.5 6",
+                fill: "none",
+                stroke: "var(--cream)",
+                strokeWidth: "1.8",
+                strokeLinecap: "round",
+                strokeLinejoin: "round"
+            }, void 0, false, {
+                fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
+                lineNumber: 9,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M20 24c0 0-4-3-4-5.5 0-1.5 1-2.5 2.2-2.5 1 0 1.5.5 1.8 1 .3-.5.8-1 1.8-1 1.2 0 2.2 1 2.2 2.5 0 2.5-4 5.5-4 5.5z",
+                fill: "var(--cream)",
+                strokeWidth: "0"
+            }, void 0, false, {
+                fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
+                lineNumber: 17,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
+        lineNumber: 8,
+        columnNumber: 5
+    }, this);
+}
+_c = FooterLogo;
 function Footer() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
         className: "footer-wrap",
@@ -1044,14 +1202,9 @@ function Footer() {
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex items-center gap-3 mb-4",
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "w-2 h-2 rounded-full",
-                                        style: {
-                                            background: 'var(--cream)'
-                                        }
-                                    }, void 0, false, {
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FooterLogo, {}, void 0, false, {
                                         fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
-                                        lineNumber: 13,
+                                        lineNumber: 33,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1063,13 +1216,13 @@ function Footer() {
                                         children: "Hands of Sympathy"
                                     }, void 0, false, {
                                         fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
-                                        lineNumber: 14,
+                                        lineNumber: 34,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
-                                lineNumber: 12,
+                                lineNumber: 32,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1083,7 +1236,7 @@ function Footer() {
                                 children: "A dedicated mental health service delivering compassionate, evidence-based interventions in Birmingham and across the NHS."
                             }, void 0, false, {
                                 fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
-                                lineNumber: 18,
+                                lineNumber: 38,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1098,18 +1251,18 @@ function Footer() {
                                         children: b
                                     }, b, false, {
                                         fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
-                                        lineNumber: 23,
+                                        lineNumber: 43,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
-                                lineNumber: 21,
+                                lineNumber: 41,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
-                        lineNumber: 11,
+                        lineNumber: 31,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1125,7 +1278,7 @@ function Footer() {
                                 children: "Services"
                             }, void 0, false, {
                                 fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
-                                lineNumber: 30,
+                                lineNumber: 50,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -1144,23 +1297,23 @@ function Footer() {
                                             children: s
                                         }, void 0, false, {
                                             fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
-                                            lineNumber: 36,
+                                            lineNumber: 56,
                                             columnNumber: 17
                                         }, this)
                                     }, s, false, {
                                         fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
-                                        lineNumber: 35,
+                                        lineNumber: 55,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
-                                lineNumber: 33,
+                                lineNumber: 53,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
-                        lineNumber: 29,
+                        lineNumber: 49,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1176,7 +1329,7 @@ function Footer() {
                                 children: "Information"
                             }, void 0, false, {
                                 fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
-                                lineNumber: 49,
+                                lineNumber: 69,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -1195,29 +1348,29 @@ function Footer() {
                                             children: s
                                         }, void 0, false, {
                                             fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
-                                            lineNumber: 55,
+                                            lineNumber: 75,
                                             columnNumber: 17
                                         }, this)
                                     }, s, false, {
                                         fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
-                                        lineNumber: 54,
+                                        lineNumber: 74,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
-                                lineNumber: 52,
+                                lineNumber: 72,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
-                        lineNumber: 48,
+                        lineNumber: 68,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
-                lineNumber: 9,
+                lineNumber: 29,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1238,7 +1391,7 @@ function Footer() {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
-                        lineNumber: 71,
+                        lineNumber: 91,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1251,25 +1404,26 @@ function Footer() {
                         children: '"A shared experience calls for a shared solution."'
                     }, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
-                        lineNumber: 74,
+                        lineNumber: 94,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
-                lineNumber: 67,
+                lineNumber: 87,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/handsofsympathy/src/components/Footer.tsx",
-        lineNumber: 8,
+        lineNumber: 28,
         columnNumber: 5
     }, this);
 }
-_c = Footer;
-var _c;
-__turbopack_context__.k.register(_c, "Footer");
+_c1 = Footer;
+var _c, _c1;
+__turbopack_context__.k.register(_c, "FooterLogo");
+__turbopack_context__.k.register(_c1, "Footer");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
@@ -1380,13 +1534,10 @@ function HomeHero({ isReady, onOpenDrawer }) {
     ]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         ref: secRef,
-        className: "relative min-h-screen flex flex-col justify-end overflow-hidden",
-        style: {
-            padding: '8rem 3.5rem 6rem'
-        },
+        className: "hero-section relative md:min-h-screen flex flex-col justify-start md:justify-end overflow-hidden px-4 sm:px-8 md:px-14 pb-12 sm:pb-16 md:pb-24 pt-24 sm:pt-28 md:pt-32",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "hero-deco-ring",
+                className: "hero-deco-ring hidden md:block",
                 style: {
                     position: 'absolute',
                     top: '10%',
@@ -1396,11 +1547,11 @@ function HomeHero({ isReady, onOpenDrawer }) {
                 }
             }, void 0, false, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                lineNumber: 65,
+                lineNumber: 64,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "hero-deco-ring breathe",
+                className: "hero-deco-ring breathe hidden md:block",
                 style: {
                     position: 'absolute',
                     top: '20%',
@@ -1410,11 +1561,11 @@ function HomeHero({ isReady, onOpenDrawer }) {
                 }
             }, void 0, false, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                lineNumber: 66,
+                lineNumber: 65,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "hero-deco-ring",
+                className: "hero-deco-ring hidden md:block",
                 style: {
                     position: 'absolute',
                     top: '28%',
@@ -1425,11 +1576,11 @@ function HomeHero({ isReady, onOpenDrawer }) {
                 }
             }, void 0, false, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                lineNumber: 67,
+                lineNumber: 66,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "hero-image-container",
+                className: "hero-image-container hidden md:block",
                 style: {
                     position: 'absolute',
                     top: '12%',
@@ -1450,7 +1601,7 @@ function HomeHero({ isReady, onOpenDrawer }) {
                         }
                     }, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                        lineNumber: 82,
+                        lineNumber: 81,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1464,7 +1615,7 @@ function HomeHero({ isReady, onOpenDrawer }) {
                         }
                     }, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                        lineNumber: 92,
+                        lineNumber: 91,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1497,12 +1648,12 @@ function HomeHero({ isReady, onOpenDrawer }) {
                                     }
                                 }, void 0, false, {
                                     fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                                    lineNumber: 117,
+                                    lineNumber: 116,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                                lineNumber: 116,
+                                lineNumber: 115,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1514,13 +1665,13 @@ function HomeHero({ isReady, onOpenDrawer }) {
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                                lineNumber: 128,
+                                lineNumber: 127,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                        lineNumber: 104,
+                        lineNumber: 103,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1542,13 +1693,13 @@ function HomeHero({ isReady, onOpenDrawer }) {
                         children: "Your Journey Begins"
                     }, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                        lineNumber: 139,
+                        lineNumber: 138,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                lineNumber: 70,
+                lineNumber: 69,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1565,33 +1716,32 @@ function HomeHero({ isReady, onOpenDrawer }) {
                     "Birmingham, UK",
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                        lineNumber: 165,
+                        lineNumber: 164,
                         columnNumber: 23
                     }, this),
                     "BABCP Accredited",
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                        lineNumber: 165,
+                        lineNumber: 164,
                         columnNumber: 45
                     }, this),
                     "Est. 2010"
                 ]
             }, void 0, true, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                lineNumber: 161,
+                lineNumber: 160,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "section-tag mb-12",
+                className: "section-tag mb-6 md:mb-12",
                 style: {
-                    marginBottom: '3rem',
                     position: 'relative',
                     zIndex: 3
                 },
                 children: "Mental Health Support"
             }, void 0, false, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                lineNumber: 169,
+                lineNumber: 168,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1610,12 +1760,12 @@ function HomeHero({ isReady, onOpenDrawer }) {
                             children: "Support With"
                         }, void 0, false, {
                             fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                            lineNumber: 176,
+                            lineNumber: 175,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                        lineNumber: 175,
+                        lineNumber: 174,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1629,12 +1779,12 @@ function HomeHero({ isReady, onOpenDrawer }) {
                             children: "Your Mental"
                         }, void 0, false, {
                             fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                            lineNumber: 179,
+                            lineNumber: 178,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                        lineNumber: 178,
+                        lineNumber: 177,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1647,47 +1797,90 @@ function HomeHero({ isReady, onOpenDrawer }) {
                             children: "Health Concerns"
                         }, void 0, false, {
                             fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                            lineNumber: 182,
+                            lineNumber: 181,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                        lineNumber: 181,
+                        lineNumber: 180,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                lineNumber: 174,
+                lineNumber: 173,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex flex-col md:flex-row items-start md:items-end justify-between gap-8 mt-16 flex-wrap",
+                className: "block md:hidden my-6",
                 style: {
                     position: 'relative',
                     zIndex: 3
                 },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "flex justify-center",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'relative',
+                            width: 'clamp(220px, 65vw, 300px)',
+                            height: 'clamp(280px, 80vw, 380px)',
+                            borderRadius: '140px 140px 80px 80px',
+                            overflow: 'hidden',
+                            boxShadow: '0 20px 50px -15px rgba(127,23,52,0.2)'
+                        },
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                            src: "https://images.unsplash.com/photo-1607748862156-7c548e7e98f4?q=80&w=1887&auto=format&fit=crop",
+                            alt: "Supportive therapy session",
+                            fill: true,
+                            priority: true,
+                            sizes: "65vw",
+                            style: {
+                                objectFit: 'cover',
+                                objectPosition: 'center 20%'
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
+                            lineNumber: 198,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
+                        lineNumber: 188,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
+                    lineNumber: 187,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
+                lineNumber: 186,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "flex flex-col items-start gap-6 md:gap-8 mt-8 md:mt-16",
+                style: {
+                    position: 'relative',
+                    zIndex: 3,
+                    maxWidth: '30rem'
+                },
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "hero-sub",
+                        className: "hero-sub text-sm md:text-base",
                         style: {
-                            fontSize: '0.95rem',
                             color: 'var(--muted)',
                             maxWidth: '25rem',
-                            lineHeight: 1.8,
-                            opacity: 0
+                            lineHeight: 1.8
                         },
                         children: "A safe space for your mental wellbeing — compassionate, evidence-based support with over 14 years of clinical expertise."
                     }, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                        lineNumber: 188,
+                        lineNumber: 212,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "hero-ctas flex gap-3",
-                        style: {
-                            opacity: 0
-                        },
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 className: "btn-claret",
@@ -1696,12 +1889,12 @@ function HomeHero({ isReady, onOpenDrawer }) {
                                     children: "Request a Call"
                                 }, void 0, false, {
                                     fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                                    lineNumber: 193,
+                                    lineNumber: 217,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                                lineNumber: 192,
+                                lineNumber: 216,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -1711,24 +1904,24 @@ function HomeHero({ isReady, onOpenDrawer }) {
                                     children: "Why It Works →"
                                 }, void 0, false, {
                                     fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                                    lineNumber: 196,
+                                    lineNumber: 220,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                                lineNumber: 195,
+                                lineNumber: 219,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                        lineNumber: 191,
+                        lineNumber: 215,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                lineNumber: 187,
+                lineNumber: 211,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1739,24 +1932,24 @@ function HomeHero({ isReady, onOpenDrawer }) {
                         children: "Scroll"
                     }, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                        lineNumber: 203,
+                        lineNumber: 227,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "scroll-bar"
                     }, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                        lineNumber: 204,
+                        lineNumber: 228,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                lineNumber: 202,
+                lineNumber: 226,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute bottom-10 right-14",
+                className: "absolute bottom-10 right-4 md:right-14",
                 style: {
                     fontFamily: 'var(--font-cormorant)',
                     fontSize: '0.65rem',
@@ -1767,7 +1960,7 @@ function HomeHero({ isReady, onOpenDrawer }) {
                 children: "01 / 06"
             }, void 0, false, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeHero.tsx",
-                lineNumber: 208,
+                lineNumber: 232,
                 columnNumber: 7
             }, this)
         ]
@@ -2068,13 +2261,10 @@ function ServicesPreview({ onOpenDrawer }) {
     }["ServicesPreview.useEffect"], []);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         ref: secRef,
-        style: {
-            background: 'var(--bg)',
-            padding: '7rem 3.5rem'
-        },
+        className: "bg-[var(--bg)] py-16 px-4 sm:px-8 md:px-14 md:py-24 lg:py-28",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "sp-heading flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-16 flex-wrap",
+                className: "sp-heading flex flex-col md:flex-row md:items-start md:justify-between gap-6 md:gap-8 mb-10 md:mb-16 flex-wrap",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex-1",
@@ -2157,24 +2347,17 @@ function ServicesPreview({ onOpenDrawer }) {
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 id: "sp-grid",
-                style: {
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(3,1fr)',
-                    border: '1px solid var(--border)'
-                },
+                className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border border-[var(--border)]",
                 children: [
                     SERVICES.map((s, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "service-card",
-                            style: {
-                                borderTop: i >= 3 ? '1px solid var(--border)' : undefined
-                            },
+                            className: `service-card ${i >= 2 ? 'border-t border-[var(--border)] lg:border-t-0' : ''} ${i >= 3 ? 'lg:border-t lg:border-[var(--border)]' : ''}`,
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "card-tag",
                                     children: s.tag
                                 }, void 0, false, {
                                     fileName: "[project]/handsofsympathy/src/components/home/ServicesPreview.tsx",
-                                    lineNumber: 62,
+                                    lineNumber: 61,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2182,7 +2365,7 @@ function ServicesPreview({ onOpenDrawer }) {
                                     children: s.num
                                 }, void 0, false, {
                                     fileName: "[project]/handsofsympathy/src/components/home/ServicesPreview.tsx",
-                                    lineNumber: 63,
+                                    lineNumber: 62,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -2190,7 +2373,7 @@ function ServicesPreview({ onOpenDrawer }) {
                                     children: s.title
                                 }, void 0, false, {
                                     fileName: "[project]/handsofsympathy/src/components/home/ServicesPreview.tsx",
-                                    lineNumber: 64,
+                                    lineNumber: 63,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2198,7 +2381,7 @@ function ServicesPreview({ onOpenDrawer }) {
                                     children: s.desc
                                 }, void 0, false, {
                                     fileName: "[project]/handsofsympathy/src/components/home/ServicesPreview.tsx",
-                                    lineNumber: 65,
+                                    lineNumber: 64,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2206,7 +2389,7 @@ function ServicesPreview({ onOpenDrawer }) {
                                     children: "Learn more →"
                                 }, void 0, false, {
                                     fileName: "[project]/handsofsympathy/src/components/home/ServicesPreview.tsx",
-                                    lineNumber: 66,
+                                    lineNumber: 65,
                                     columnNumber: 13
                                 }, this)
                             ]
@@ -2235,7 +2418,7 @@ function ServicesPreview({ onOpenDrawer }) {
                                 children: "→"
                             }, void 0, false, {
                                 fileName: "[project]/handsofsympathy/src/components/home/ServicesPreview.tsx",
-                                lineNumber: 75,
+                                lineNumber: 74,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2252,7 +2435,7 @@ function ServicesPreview({ onOpenDrawer }) {
                                         children: '"Every person is unique. So is our care."'
                                     }, void 0, false, {
                                         fileName: "[project]/handsofsympathy/src/components/home/ServicesPreview.tsx",
-                                        lineNumber: 77,
+                                        lineNumber: 76,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2262,24 +2445,24 @@ function ServicesPreview({ onOpenDrawer }) {
                                             children: "Book Your Session"
                                         }, void 0, false, {
                                             fileName: "[project]/handsofsympathy/src/components/home/ServicesPreview.tsx",
-                                            lineNumber: 81,
+                                            lineNumber: 80,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/handsofsympathy/src/components/home/ServicesPreview.tsx",
-                                        lineNumber: 80,
+                                        lineNumber: 79,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/handsofsympathy/src/components/home/ServicesPreview.tsx",
-                                lineNumber: 76,
+                                lineNumber: 75,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/handsofsympathy/src/components/home/ServicesPreview.tsx",
-                        lineNumber: 71,
+                        lineNumber: 70,
                         columnNumber: 9
                     }, this)
                 ]
@@ -2365,9 +2548,9 @@ function PhilosophyStrip() {
     }["PhilosophyStrip.useEffect"], []);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         id: "philosophy-strip",
+        className: "py-12 sm:py-16 md:py-28",
         style: {
             background: 'var(--claret-dark)',
-            padding: '7rem 0',
             position: 'relative',
             overflow: 'hidden'
         },
@@ -2389,11 +2572,11 @@ function PhilosophyStrip() {
                 children: "Sympathy  Recovery  Community  Healing"
             }, void 0, false, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeExtras.tsx",
-                lineNumber: 38,
+                lineNumber: 39,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "relative z-10 max-w-4xl mx-auto text-center px-8",
+                className: "relative z-10 max-w-4xl mx-auto text-center px-4 sm:px-8",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                         className: "quote-text",
@@ -2408,7 +2591,7 @@ function PhilosophyStrip() {
                         children: '"A shared experience calls for a shared solution. Community is the vital component on the road to recovery."'
                     }, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeExtras.tsx",
-                        lineNumber: 50,
+                        lineNumber: 51,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2422,13 +2605,13 @@ function PhilosophyStrip() {
                         children: "— The Hands of Sympathy Philosophy"
                     }, void 0, false, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeExtras.tsx",
-                        lineNumber: 63,
+                        lineNumber: 64,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeExtras.tsx",
-                lineNumber: 49,
+                lineNumber: 50,
                 columnNumber: 7
             }, this)
         ]
@@ -2499,9 +2682,9 @@ function MethodsIntro() {
     ];
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         ref: secRef,
+        className: "px-4 sm:px-8 md:px-14 py-12 sm:py-16 md:py-28",
         style: {
-            background: 'var(--cream-light)',
-            padding: '7rem 3.5rem'
+            background: 'var(--cream-light)'
         },
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2509,7 +2692,7 @@ function MethodsIntro() {
                 children: "Our Methods"
             }, void 0, false, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeExtras.tsx",
-                lineNumber: 96,
+                lineNumber: 97,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2519,12 +2702,12 @@ function MethodsIntro() {
                     children: "Three modalities,"
                 }, void 0, false, {
                     fileName: "[project]/handsofsympathy/src/components/home/HomeExtras.tsx",
-                    lineNumber: 97,
+                    lineNumber: 98,
                     columnNumber: 42
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeExtras.tsx",
-                lineNumber: 97,
+                lineNumber: 98,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2538,31 +2721,25 @@ function MethodsIntro() {
                     children: "one approach"
                 }, void 0, false, {
                     fileName: "[project]/handsofsympathy/src/components/home/HomeExtras.tsx",
-                    lineNumber: 99,
+                    lineNumber: 100,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeExtras.tsx",
-                lineNumber: 98,
+                lineNumber: 99,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "mi-grid grid grid-cols-1 md:grid-cols-3 mt-16",
+                className: "mi-grid grid grid-cols-1 md:grid-cols-3 mt-8 sm:mt-12 md:mt-16",
                 children: methods.map((m, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "mi-col",
+                        className: "mi-col p-4 sm:p-6 md:p-12",
                         style: {
-                            padding: '3rem',
                             borderLeft: i > 0 ? '1px solid rgba(127,23,52,0.12)' : undefined
                         },
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$handsofsympathy$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "font-display text-5xl sm:text-6xl md:text-7xl italic font-light leading-none mb-4 md:mb-5",
                                 style: {
-                                    fontFamily: 'var(--font-cormorant)',
-                                    fontSize: '6rem',
-                                    fontStyle: 'italic',
-                                    fontWeight: 300,
-                                    lineHeight: 1,
-                                    marginBottom: '1.25rem',
                                     color: m.color
                                 },
                                 children: m.letter
@@ -2599,18 +2776,18 @@ function MethodsIntro() {
                         ]
                     }, m.letter, true, {
                         fileName: "[project]/handsofsympathy/src/components/home/HomeExtras.tsx",
-                        lineNumber: 104,
+                        lineNumber: 105,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/handsofsympathy/src/components/home/HomeExtras.tsx",
-                lineNumber: 102,
+                lineNumber: 103,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/handsofsympathy/src/components/home/HomeExtras.tsx",
-        lineNumber: 95,
+        lineNumber: 96,
         columnNumber: 5
     }, this);
 }

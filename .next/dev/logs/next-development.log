@@ -1,6 +1,125 @@
-[00:00:25.191] Server  LOG     ✓ Ready in 15.7s
-[00:00:30.331] Server  LOG     ○ Compiling / ...
-[00:00:46.821] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+[00:00:10.349] Server  LOG     ✓ Ready in 7s
+[00:00:53.531] Server  LOG     ○ Compiling / ...
+[00:00:56.485] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
 Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
-[00:00:54.818] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:04.948] Browser WARN    Image with src "https://images.unsplash.com/photo-1607748862156-7c548e7e98f4?q=80&w=1887&auto=format&fit=crop" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
+[00:00:59.931] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:00.745] Browser WARN    Image with src "https://images.unsplash.com/photo-1607748862156-7c548e7e98f4?q=80&w=1887&auto=format&fit=crop" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
+[00:03:13.565] Server  LOG     ✓ Compiled in 1309ms
+[00:03:30.419] Server  LOG     ✓ Compiled in 8.9s
+[00:04:31.171] Server  LOG     ✓ Compiled in 305ms
+[00:04:49.879] Server  LOG     ✓ Compiled in 287ms
+[00:04:59.162] Server  LOG     ✓ Compiled in 1306ms
+[00:09:11.973] Server  LOG     ✓ Compiled in 3.8s
+[00:09:29.022] Server  LOG     ✓ Compiled in 7s
+[00:10:03.968] Server  LOG     ✓ Compiled in 6.2s
+[00:10:30.253] Server  LOG     ✓ Compiled in 5.6s
+[00:10:34.321] Server  LOG     ✓ Compiled in 1052ms
+[00:12:39.221] Server  LOG     ✓ Compiled in 9.5s
+[00:13:28.188] Server  LOG     ✓ Compiled in 7.6s
+[00:14:04.704] Server  LOG     ✓ Compiled in 5.3s
+[12:07:29.924] Server  LOG     ✓ Compiled in 706ms
+[12:07:37.397] Server  LOG     ✓ Compiled in 716ms
+[12:07:53.033] Server  LOG     ✓ Compiled in 358ms
+[12:08:18.277] Server  LOG     ✓ Compiled in 429ms
+[12:09:01.602] Server  LOG     ✓ Compiled in 487ms
+[12:09:31.360] Server  LOG     ✓ Compiled in 572ms
+[12:13:37.085] Server  LOG     ✓ Compiled in 509ms
+[12:14:23.388] Server  LOG     ✓ Compiled in 726ms
+[12:14:23.806] Browser ERROR   ./handsofsympathy/src/app/globals.css:1167:3
+Parsing CSS source code failed
+  1165 |     padding: 3px;
+  1166 |     gap: 1px;
+> 1167 |   }
+       |   ^
+  1168 |   .nav-pill-btn { 
+  1169 |     padding: 0.4rem 0.75rem; 
+  1170 |     font-size: 0.65rem;
+
+Unexpected end of input
+
+Import trace:
+  Client Component Browser:
+    ./handsofsympathy/src/app/globals.css [Client Component Browser]
+    ./handsofsympathy/src/app/layout.tsx [Server Component]
+[12:14:39.403] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[12:14:49.850] Server  LOG     ✓ Compiled in 553ms
+[12:15:05.572] Server  LOG     ✓ Compiled in 747ms
+[12:15:57.664] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[12:16:01.469] Browser WARN    Image with src "https://images.unsplash.com/photo-1607748862156-7c548e7e98f4?q=80&w=1887&auto=format&fit=crop" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
+[13:31:58.772] Server  LOG     ✓ Compiled in 716ms
+[13:32:05.726] Server  LOG     ✓ Compiled in 499ms
+[13:32:22.692] Server  LOG     ✓ Compiled in 501ms
+[13:32:34.636] Server  LOG     ✓ Compiled in 339ms
+[13:32:40.623] Server  LOG     ✓ Compiled in 285ms
+[13:32:46.148] Server  LOG     ✓ Compiled in 566ms
+[13:33:02.643] Server  LOG     ✓ Compiled in 498ms
+[14:45:51.663] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[14:45:54.497] Browser WARN    Image with src "https://images.unsplash.com/photo-1607748862156-7c548e7e98f4?q=80&w=1887&auto=format&fit=crop" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
+[14:47:10.509] Server  LOG     ✓ Compiled in 2.6s
+[14:47:16.316] Server  LOG     ✓ Compiled in 370ms
+[14:47:24.979] Server  LOG     ✓ Compiled in 406ms
+[14:47:42.077] Server  LOG     ✓ Compiled in 1035ms
+[17:17:54.279] Server  LOG     ✓ Compiled in 1860ms
+[17:17:58.749] Server  LOG     ✓ Compiled in 2.3s
+[17:18:09.079] Server  LOG     ✓ Compiled in 1696ms
+[17:20:18.557] Server  LOG     ✓ Compiled in 822ms
+[17:21:19.908] Server  LOG     ✓ Compiled in 565ms
+[17:21:23.028] Server  LOG     ○ Compiling /_not-found/page ...
+[17:21:23.902] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /_not-found. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[17:21:24.063] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/hero-graphic.png" "received" null
+[17:21:44.702] Server  LOG     ✓ Compiled in 920ms
+[17:24:47.294] Server  LOG     ✓ Compiled in 308ms
+[17:24:47.455] Browser ERROR   ./handsofsympathy/src/components/home/HomeHero.tsx:212:7
+Parsing ecmascript source code failed
+  210 |       {/* Bottom row */}
+  211 |         </div>
+> 212 |       </div>
+      |       ^
+  213 |
+  214 |       {/* Bottom row */}
+  215 |       <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 md:gap-8 mt-8 md:mt-16 flex-wrap" style={{ position: 'relative', zIndex: 3 }}>
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./handsofsympathy/src/components/home/HomeHero.tsx [Client Component Browser]
+    ./handsofsympathy/src/app/page.tsx [Client Component Browser]
+    ./handsofsympathy/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./handsofsympathy/src/components/home/HomeHero.tsx [Client Component SSR]
+    ./handsofsympathy/src/app/page.tsx [Client Component SSR]
+    ./handsofsympathy/src/app/page.tsx [Server Component]
+[17:24:47.455] Browser ERROR   ./handsofsympathy/src/components/home/HomeHero.tsx:212:8
+Parsing ecmascript source code failed
+  210 |       {/* Bottom row */}
+  211 |         </div>
+> 212 |       </div>
+      |        ^^^^^
+  213 |
+  214 |       {/* Bottom row */}
+  215 |       <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 md:gap-8 mt-8 md:mt-16 flex-wrap" style={{ position: 'relative', zIndex: 3 }}>
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./handsofsympathy/src/components/home/HomeHero.tsx [Client Component Browser]
+    ./handsofsympathy/src/app/page.tsx [Client Component Browser]
+    ./handsofsympathy/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./handsofsympathy/src/components/home/HomeHero.tsx [Client Component SSR]
+    ./handsofsympathy/src/app/page.tsx [Client Component SSR]
+    ./handsofsympathy/src/app/page.tsx [Server Component]
+[17:24:57.545] Server  LOG     ✓ Compiled in 400ms
+[17:24:58.455] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[17:25:05.343] Server  LOG     ✓ Compiled in 912ms
+[17:27:46.485] Server  LOG     ✓ Compiled in 943ms
+[17:30:20.978] Server  LOG     ✓ Compiled in 468ms

@@ -32,7 +32,8 @@ export function PhilosophyStrip() {
   return (
     <section
       id="philosophy-strip"
-      style={{ background: 'var(--claret-dark)', padding: '7rem 0', position: 'relative', overflow: 'hidden' }}
+      className="py-12 sm:py-16 md:py-28"
+      style={{ background: 'var(--claret-dark)', position: 'relative', overflow: 'hidden' }}
     >
       {/* Drifting background word */}
       <div
@@ -46,7 +47,7 @@ export function PhilosophyStrip() {
         Sympathy&nbsp;&nbsp;Recovery&nbsp;&nbsp;Community&nbsp;&nbsp;Healing
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto text-center px-8">
+      <div className="relative z-10 max-w-4xl mx-auto text-center px-4 sm:px-8">
         <p
           className="quote-text"
           style={{
@@ -92,24 +93,23 @@ export function MethodsIntro() {
   ]
 
   return (
-    <section ref={secRef} style={{ background: 'var(--cream-light)', padding: '7rem 3.5rem' }}>
+    <section ref={secRef} className="px-4 sm:px-8 md:px-14 py-12 sm:py-16 md:py-28" style={{ background: 'var(--cream-light)' }}>
       <div className="section-tag mb-6">Our Methods</div>
       <div className="mi-rl reveal-line"><span className="rl-inner text-display-lg">Three modalities,</span></div>
       <div className="mi-rl reveal-line">
         <span className="rl-inner text-display-lg" style={{ fontStyle: 'italic', color: 'var(--claret)' }}>one approach</span>
       </div>
 
-      <div className="mi-grid grid grid-cols-1 md:grid-cols-3 mt-16">
+      <div className="mi-grid grid grid-cols-1 md:grid-cols-3 mt-8 sm:mt-12 md:mt-16">
         {methods.map((m, i) => (
           <div
             key={m.letter}
-            className="mi-col"
+            className="mi-col p-4 sm:p-6 md:p-12"
             style={{
-              padding: '3rem',
               borderLeft: i > 0 ? '1px solid rgba(127,23,52,0.12)' : undefined,
             }}
           >
-            <div style={{ fontFamily: 'var(--font-cormorant)', fontSize: '6rem', fontStyle: 'italic', fontWeight: 300, lineHeight: 1, marginBottom: '1.25rem', color: m.color }}>
+            <div className="font-display text-5xl sm:text-6xl md:text-7xl italic font-light leading-none mb-4 md:mb-5" style={{ color: m.color }}>
               {m.letter}
             </div>
             <div style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.25rem', color: 'var(--fg)', marginBottom: '0.6rem' }}>

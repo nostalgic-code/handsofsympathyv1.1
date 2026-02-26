@@ -58,17 +58,16 @@ export default function HomeHero({ isReady, onOpenDrawer }: Props) {
   return (
     <section
       ref={secRef}
-      className="relative min-h-screen flex flex-col justify-end overflow-hidden"
-      style={{ padding: '8rem 3.5rem 6rem' }}
+      className="hero-section relative md:min-h-screen flex flex-col justify-start md:justify-end overflow-hidden px-4 sm:px-8 md:px-14 pb-12 sm:pb-16 md:pb-24 pt-24 sm:pt-28 md:pt-32"
     >
-      {/* Decorative rings */}
-      <div className="hero-deco-ring" style={{ position:'absolute', top:'10%', right:'-8%', width:'55vw', height:'55vw' }} />
-      <div className="hero-deco-ring breathe" style={{ position:'absolute', top:'20%', right:'4%', width:'35vw', height:'35vw' }} />
-      <div className="hero-deco-ring" style={{ position:'absolute', top:'28%', right:'12%', width:'18vw', height:'18vw', borderColor:'rgba(127,23,52,.06)' }} />
+      {/* Decorative rings - desktop only */}
+      <div className="hero-deco-ring hidden md:block" style={{ position:'absolute', top:'10%', right:'-8%', width:'55vw', height:'55vw' }} />
+      <div className="hero-deco-ring breathe hidden md:block" style={{ position:'absolute', top:'20%', right:'4%', width:'35vw', height:'35vw' }} />
+      <div className="hero-deco-ring hidden md:block" style={{ position:'absolute', top:'28%', right:'12%', width:'18vw', height:'18vw', borderColor:'rgba(127,23,52,.06)' }} />
 
-      {/* Hero Image - positioned within the rings */}
+      {/* Hero Image - positioned absolutely on desktop only */}
       <div 
-        className="hero-image-container"
+        className="hero-image-container hidden md:block"
         style={{
           position: 'absolute',
           top: '12%',
@@ -166,7 +165,7 @@ export default function HomeHero({ isReady, onOpenDrawer }: Props) {
       </div>
 
       {/* Tag */}
-      <div className="section-tag mb-12" style={{ marginBottom: '3rem', position: 'relative', zIndex: 3 }}>
+      <div className="section-tag mb-6 md:mb-12" style={{ position: 'relative', zIndex: 3 }}>
         Mental Health Support
       </div>
 
@@ -183,12 +182,37 @@ export default function HomeHero({ isReady, onOpenDrawer }: Props) {
         </div>
       </div>
 
+      {/* Mobile-only hero image (in flow between headline and text) */}
+      <div className="block md:hidden my-6" style={{ position: 'relative', zIndex: 3 }}>
+        <div className="flex justify-center">
+          <div 
+            style={{
+              position: 'relative',
+              width: 'clamp(220px, 65vw, 300px)',
+              height: 'clamp(280px, 80vw, 380px)',
+              borderRadius: '140px 140px 80px 80px',
+              overflow: 'hidden',
+              boxShadow: '0 20px 50px -15px rgba(127,23,52,0.2)',
+            }}
+          >
+            <Image
+              src="https://images.unsplash.com/photo-1607748862156-7c548e7e98f4?q=80&w=1887&auto=format&fit=crop"
+              alt="Supportive therapy session"
+              fill
+              priority
+              sizes="65vw"
+              style={{ objectFit: 'cover', objectPosition: 'center 20%' }}
+            />
+          </div>
+        </div>
+      </div>
+
       {/* Bottom row */}
-      <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 mt-16 flex-wrap" style={{ position: 'relative', zIndex: 3 }}>
-        <p className="hero-sub" style={{ fontSize: '0.95rem', color: 'var(--muted)', maxWidth: '25rem', lineHeight: 1.8, opacity: 0 }}>
+      <div className="flex flex-col items-start gap-6 md:gap-8 mt-8 md:mt-16" style={{ position: 'relative', zIndex: 3, maxWidth: '30rem' }}>
+        <p className="hero-sub text-sm md:text-base" style={{ color: 'var(--muted)', maxWidth: '25rem', lineHeight: 1.8 }}>
           A safe space for your mental wellbeing — compassionate, evidence-based support with over 14 years of clinical expertise.
         </p>
-        <div className="hero-ctas flex gap-3" style={{ opacity: 0 }}>
+        <div className="hero-ctas flex gap-3">
           <button className="btn-claret" onClick={onOpenDrawer}>
             <span>Request a Call</span>
           </button>
@@ -205,7 +229,7 @@ export default function HomeHero({ isReady, onOpenDrawer }: Props) {
       </div>
 
       {/* Page counter */}
-      <div className="absolute bottom-10 right-14" style={{ fontFamily: 'var(--font-cormorant)', fontSize: '0.65rem', color: 'rgba(107,107,107,0.25)', letterSpacing: '0.2em', zIndex: 3 }}>
+      <div className="absolute bottom-10 right-4 md:right-14" style={{ fontFamily: 'var(--font-cormorant)', fontSize: '0.65rem', color: 'rgba(107,107,107,0.25)', letterSpacing: '0.2em', zIndex: 3 }}>
         01 / 06
       </div>
     </section>

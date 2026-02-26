@@ -34,8 +34,8 @@ export default function ServicesPreview({ onOpenDrawer }: Props) {
   }, [])
 
   return (
-    <section ref={secRef} style={{ background: 'var(--bg)', padding: '7rem 3.5rem' }}>
-      <div className="sp-heading flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-16 flex-wrap">
+    <section ref={secRef} className="bg-[var(--bg)] py-16 px-4 sm:px-8 md:px-14 md:py-24 lg:py-28">
+      <div className="sp-heading flex flex-col md:flex-row md:items-start md:justify-between gap-6 md:gap-8 mb-10 md:mb-16 flex-wrap">
         <div className="flex-1">
           <div className="section-tag mb-6">What We Offer</div>
           <div className="sp-rl reveal-line"><span className="rl-inner text-display-lg">A safe space</span></div>
@@ -52,12 +52,11 @@ export default function ServicesPreview({ onOpenDrawer }: Props) {
         </div>
       </div>
 
-      <div id="sp-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', border: '1px solid var(--border)' }}>
+      <div id="sp-grid" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border border-[var(--border)]">
         {SERVICES.map((s, i) => (
           <div
             key={s.num}
-            className="service-card"
-            style={{ borderTop: i >= 3 ? '1px solid var(--border)' : undefined }}
+            className={`service-card ${i >= 2 ? 'border-t border-[var(--border)] lg:border-t-0' : ''} ${i >= 3 ? 'lg:border-t lg:border-[var(--border)]' : ''}`}
           >
             <div className="card-tag">{s.tag}</div>
             <div className="card-num">{s.num}</div>
