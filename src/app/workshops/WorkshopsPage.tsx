@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useCallback, useState } from 'react'
+import { useEffect, useRef, useCallback } from 'react'
 import dynamic from 'next/dynamic'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -47,11 +47,6 @@ const VENUES = [
     location: 'Fairview, Bulawayo',
     description:
       'A morning of learning and discovery for parents, teachers, and community members at Fairview Adventist Primary School. The session explored neurodevelopmental differences and how schools can better support every learner.',
-    images: [
-      '/FAIR1.jpg', '/FAIR2.jpg', '/FAIR3.jpg',
-      '/FAIR4.jpg', '/FAIR5.jpg', '/FAIR6.jpg',
-      '/FAIR7.jpg', '/FAIR8.jpg', '/fair9.jpg',
-    ],
   },
   {
     id: 'bahs',
@@ -59,7 +54,6 @@ const VENUES = [
     location: 'Bulawayo',
     description:
       'Secondary school educators and students joined Felix for an engaging session on neurodiversity, mental health, and the importance of inclusive environments in high school settings.',
-    images: ['/BAHS1.jpg', '/bahs2.jpg'],
   },
   {
     id: 'phela',
@@ -67,7 +61,6 @@ const VENUES = [
     location: 'Pelandaba, Bulawayo',
     description:
       'Families and teachers came together at Pelandaba Adventist Primary School to understand how neurodivergent children experience the world — and how small changes in approach can unlock tremendous potential.',
-    images: ['/phela1.jpg', '/phela2.jpg', '/phela3.jpg'],
   },
   {
     id: 'sda',
@@ -75,66 +68,15 @@ const VENUES = [
     location: 'Makhokhoba, Bulawayo',
     description:
       'A community gathering at Makhokhoba SDA Church brought together congregation members and families to break down stigma around neurodevelopmental conditions and mental health, and to foster a culture of compassion and understanding.',
-    images: [
-      '/SDA1.jpg', '/SDA2.jpg', '/SDA3.jpg',
-      '/SDA4.jpg', '/SDA5.jpg', '/SDA6.jpg',
-    ],
   },
 ]
 
-function LightboxModal({ src, onClose }: { src: string; onClose: () => void }) {
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
-    document.addEventListener('keydown', handleKey)
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.removeEventListener('keydown', handleKey)
-      document.body.style.overflow = ''
-    }
-  }, [onClose])
-
-  return (
-    <div
-      onClick={onClose}
-      style={{
-        position: 'fixed', inset: 0, zIndex: 2000,
-        background: 'rgba(26,26,26,0.92)', backdropFilter: 'blur(8px)',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        padding: '2rem',
-      }}
-    >
-      <button
-        onClick={onClose}
-        aria-label="Close image"
-        style={{
-          position: 'absolute', top: '1.5rem', right: '1.5rem',
-          width: 44, height: 44, borderRadius: '50%',
-          border: '1.5px solid rgba(232,216,197,0.25)',
-          background: 'none', color: 'rgba(232,216,197,0.7)',
-          fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center',
-          cursor: 'none',
-        }}
-      >✕</button>
-      <img
-        src={src}
-        alt="Workshop photo"
-        onClick={(e) => e.stopPropagation()}
-        style={{
-          maxWidth: '90vw', maxHeight: '85vh',
-          objectFit: 'contain',
-          boxShadow: '0 32px 80px rgba(0,0,0,0.6)',
-        }}
-      />
-    </div>
-  )
-}
 
 export default function WorkshopsPage() {
   useLenis()
   const pageRef  = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const heroImgRef = useRef<HTMLDivElement>(null)
-  const [lightbox, setLightbox] = useState<string | null>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -169,13 +111,6 @@ export default function WorkshopsPage() {
         scrollTrigger: { trigger: '.wk-video-wrap', start: 'top 80%', once: true },
       })
 
-      // Venue sections
-      document.querySelectorAll('.venue-section').forEach(section => {
-        gsap.from(section.querySelectorAll('.venue-img'), {
-          opacity: 0, scale: 0.92, stagger: 0.08, duration: 0.85, ease: 'power3.out',
-          scrollTrigger: { trigger: section, start: 'top 78%', once: true },
-        })
-      })
     }, pageRef)
     return () => ctx.revert()
   }, [])
@@ -189,11 +124,8 @@ export default function WorkshopsPage() {
       <Nav isReady={true} />
       <CallDrawer />
 
-      {lightbox && (
-        <LightboxModal src={lightbox} onClose={() => setLightbox(null)} />
-      )}
 
-      <div ref={pageRef}>
+<div ref={pageRef}>
 
         {/* ── HERO ── */}
         <section
@@ -444,69 +376,6 @@ export default function WorkshopsPage() {
                     </p>
                   </div>
 
-                  {/* Photo grid */}
-                  <div
-                    style={{
-                      display: 'grid',
-                      gridTemplateColumns: `repeat(${Math.min(venue.images.length, 3)}, 1fr)`,
-                      gap: '0.75rem',
-                    }}
-                    className={`venue-grid-${venue.id}`}
-                  >
-                    {venue.images.map((src, ii) => (
-                      <div
-                        key={src}
-                        className="venue-img"
-                        onClick={() => setLightbox(src)}
-                        style={{
-                          position: 'relative', overflow: 'hidden',
-                          aspectRatio: ii === 0 && venue.images.length > 3 ? '16/9' : '4/3',
-                          gridColumn: ii === 0 && venue.images.length > 3 ? 'span 2' : undefined,
-                          background: 'var(--claret-dark)',
-                          cursor: 'none',
-                        }}
-                        onMouseEnter={e => {
-                          const img = e.currentTarget.querySelector('img') as HTMLImageElement
-                          if (img) img.style.transform = 'scale(1.05)'
-                          const overlay = e.currentTarget.querySelector('.img-overlay') as HTMLElement
-                          if (overlay) overlay.style.opacity = '1'
-                        }}
-                        onMouseLeave={e => {
-                          const img = e.currentTarget.querySelector('img') as HTMLImageElement
-                          if (img) img.style.transform = 'scale(1)'
-                          const overlay = e.currentTarget.querySelector('.img-overlay') as HTMLElement
-                          if (overlay) overlay.style.opacity = '0'
-                        }}
-                      >
-                        <img
-                          src={src}
-                          alt={`${venue.name} — photo ${ii + 1}`}
-                          loading="lazy"
-                          style={{
-                            width: '100%', height: '100%',
-                            objectFit: 'cover', display: 'block',
-                            transition: 'transform 0.7s cubic-bezier(0.76,0,0.24,1)',
-                          }}
-                        />
-                        {/* Hover overlay */}
-                        <div
-                          className="img-overlay"
-                          style={{
-                            position: 'absolute', inset: 0,
-                            background: 'rgba(90,16,37,0.45)',
-                            display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            opacity: 0, transition: 'opacity 0.4s',
-                          }}
-                        >
-                          <span style={{
-                            fontFamily: 'var(--font-cormorant)', fontStyle: 'italic',
-                            fontSize: '0.8rem', letterSpacing: '0.18em', textTransform: 'uppercase',
-                            color: 'var(--cream-light)',
-                          }}>View →</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
                 </div>
               </div>
             ))}
